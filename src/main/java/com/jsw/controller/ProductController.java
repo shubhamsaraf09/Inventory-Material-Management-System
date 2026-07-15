@@ -19,7 +19,7 @@ import static org.springframework.data.jpa.domain.AbstractPersistable_.id;
 public class ProductController {
 
     @Autowired
-    private ProductService productService;
+    private ProductService    productService;
 
     @PreAuthorize("hasAnyRole('MANAGER', 'ADMIN')")
     @PostMapping("/save")
