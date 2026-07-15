@@ -20,13 +20,13 @@ public class IssueRequestController {
     private IssueRequestServiceImpl issueRequestServiceImpl;
 
     @PreAuthorize("hasAnyRole('USER', 'MANAGER', 'ADMIN')")
-    @PostMapping
+    @PostMapping("/create")
     public ResponseEntity<IssueRequest> createIssueRequest(@Valid @RequestBody IssueRequestDto dto){
         return new ResponseEntity<>(issueRequestServiceImpl.createIssueRequest(dto), HttpStatus.CREATED);
     }
 
     @PreAuthorize("hasAnyRole('USER', 'MANAGER', 'ADMIN')")
-    @GetMapping
+    @GetMapping("/findall")
     public ResponseEntity<List<IssueRequest>> getAllIssueRequests(){
         return ResponseEntity.ok(issueRequestServiceImpl.findAllIssueRequest());
     }
